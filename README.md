@@ -1,4 +1,4 @@
-# spotif
+# Music Player
 
 ## Project setup
 
