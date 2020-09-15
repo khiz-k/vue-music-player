@@ -1,33 +1,29 @@
 <template>
   <div id="app">
-    <header>
-      <h1>Currently Playing</h1>
-    </header>
-    <main>
-      <section class="player">
-        <h2 class="song-title">
-          {{ current.title }} -
-          <span>{{ current.artist }}</span>
-        </h2>
-        <div class="controls">
-          <button class="prev" @click="prev">Prev</button>
-          <button class="play" v-if="!isPlaying" @click="play">Play</button>
-          <button class="pause" v-else @click="pause">Pause</button>
-          <button class="next" @click="next">Next</button>
-        </div>
-      </section>
-      <section class="playlist">
-        <h3>Playlist</h3>
-        <button
-          v-for="song in songs"
-          :key="song.src"
-          @click="play(song)"
-          :class="song.src == current.src ? 'song playing' : 'song'"
-        >
-          {{ song.title }} - {{ song.artist }}
-        </button>
-      </section>
-    </main>
+    <section class="player">
+      <header>
+        <h1>Playing:</h1>
+      </header>
+      <h2 class="song-title">
+        {{ current.title }} -
+        <span>{{ current.artist }}</span>
+      </h2>
+      <div class="controls">
+        <button class="prev" @click="prev">Prev</button>
+        <button class="play" v-if="!isPlaying" @click="play">Play</button>
+        <button class="pause" v-else @click="pause">Pause</button>
+        <button class="next" @click="next">Next</button>
+      </div>
+    </section>
+    <section class="playlist">
+      <h3>Playlist:</h3>
+      <button
+        v-for="song in songs"
+        :key="song.src"
+        @click="play(song)"
+        :class="song.src == current.src ? 'song playing' : 'song'"
+      >{{ song.title }} - {{ song.artist }}</button>
+    </section>
   </div>
 </template>
 
@@ -112,32 +108,31 @@ export default {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  border-radius: 150px;
 }
 body {
   font-family: sans-serif;
+  width: 100%;
+  max-width: 768px;
+  margin: 0 auto;
 }
 header {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #212121;
-  text-decoration: underline;
-  font-size: 36px;
 }
 header > h1 {
-  background-color: plum;
-}
-main {
-  width: 100%;
-  max-width: 768px;
-  margin: 0 auto;
+  text-decoration: underline;
+  font-size: 36px;
+  color: #212121;
 }
 
 .player {
-  padding-top: 35px;
+  padding: 50px;
   background-color: plum;
 }
 .song-title {
+  padding: 30px 0px;
   color: #53565a;
   font-size: 24px;
   font-weight: 700;
@@ -153,7 +148,6 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 30px 15px;
 }
 
 button {
@@ -191,7 +185,7 @@ button:hover {
 
 .playlist {
   background-color: blueviolet;
-  padding: 60px;
+  padding: 50px;
 }
 .playlist > h3 {
   display: flex;
