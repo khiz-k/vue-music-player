@@ -1,5 +1,7 @@
 # Music Player
 
+https://khiz-music-player.netlify.app/
+
 ## Project setup
 
 ```
