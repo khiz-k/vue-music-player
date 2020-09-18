@@ -1,9 +1,10 @@
 <template>
   <div id="app">
+    <header>
+      <h1>Music Player</h1>
+    </header>
     <section class="player">
-      <header>
-        <h1>Playing:</h1>
-      </header>
+      <h2 class="playing">Playing:</h2>
       <h2 class="song-title">
         {{ current.title }} -
         <span>{{ current.artist }}</span>
@@ -16,7 +17,7 @@
       </div>
     </section>
     <section class="playlist">
-      <h3>Playlist:</h3>
+      <h2>Playlist:</h2>
       <button
         v-for="song in songs"
         :key="song.src"
@@ -111,6 +112,7 @@ export default {
   border-radius: 150px;
 }
 body {
+  background-color: #323232;
   font-family: sans-serif;
   width: 100%;
   max-width: 768px;
@@ -119,15 +121,21 @@ body {
 header {
   display: flex;
   justify-content: center;
-  align-items: center;
+  color: white;
+  margin: 25px auto;
+  font-size: 40px;
 }
-header > h1 {
+.playing {
   text-decoration: underline;
   font-size: 36px;
   color: #212121;
 }
 
 .player {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 50px;
   background-color: plum;
 }
@@ -187,7 +195,7 @@ button:hover {
   background-color: blueviolet;
   padding: 50px;
 }
-.playlist > h3 {
+.playlist > h2 {
   display: flex;
   justify-content: center;
   align-items: center;
