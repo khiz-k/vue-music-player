@@ -2,6 +2,9 @@
 
 https://khiz-music-player.netlify.app/
 
+![example](/music-player.gif)
+
+
 ## Project setup
 
 ```
